@@ -1,0 +1,9 @@
+ <% communities.each do |community| %>
+    <li class="media mb-3">
+      <div class="media-body">
+        <div>
+          <%= link_to community.name, community_path %>
+        </div>
+      </div>
+    </li>
+<% end %>

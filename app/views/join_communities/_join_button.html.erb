@@ -1,0 +1,11 @@
+<% if current_user.join_community?(community) %>
+    <%= form_with(model: current_user.join_communities.find_by(community_id: community.id), local: true, method: :delete) do |f| %>
+      <%= hidden_field_tag :community_id, community.id %>
+      <%= f.submit '退出', class: 'btn btn-danger' %>
+    <% end %>
+  <% else %>
+    <%= form_with(model: current_user.join_communities.build, local: true) do |f| %>
+      <%= hidden_field_tag :community_id, community.id %>
+      <%= f.submit '参加', class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
