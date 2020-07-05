@@ -58,6 +58,6 @@ class User < ApplicationRecord
     end
     
     def feed_microposts
-    Micropost.where(user_id: self.join_ids + [self.id])
+    Micropost.where(user_id: self.join_ids + [self.id]).or(Micropost.where(community: id))
     end
 end
