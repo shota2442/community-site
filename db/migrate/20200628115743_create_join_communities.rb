@@ -3,7 +3,6 @@ class CreateJoinCommunities < ActiveRecord::Migration[5.2]
     create_table :join_communities do |t|
       t.references :user, foreign_key: true
       t.references :community, foreign_key: true
-      t.references :micropost, foreign_key: true
 
       t.timestamps
       
