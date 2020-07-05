@@ -15,6 +15,8 @@ class User < ApplicationRecord
     has_many :like, through: :favorites, source: :micropost
     has_many :join_communities, dependent: :destroy
     has_many :join, through: :join_communities, source: :community
+    has_many :join_communities, dependent: :destroy
+    has_many :chat, through: :join_communities, source: :micropost
     
     def follow(other_user)
       unless self == other_user
@@ -60,4 +62,8 @@ class User < ApplicationRecord
     def feed_microposts
     Micropost.where(user_id: self.join_ids + [self.id]).or(Micropost.where(community: id))
     end
+    
+    def chat(other_micropost)
+      self.join_communities.find_or_create_by(micropost_id: other_micropost.id)
+    end 
 end

@@ -60,7 +60,7 @@ class UsersController < ApplicationController
   
   def chats
     @user = User.find(params[:id])
-    @joins = @user.join.page(params[:page])
+    @chats = @user.join_communities.page(params[:page])
   end
   
   private
