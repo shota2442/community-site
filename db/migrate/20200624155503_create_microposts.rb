@@ -6,8 +6,6 @@ class CreateMicroposts < ActiveRecord::Migration[5.2]
       t.references :community, foreign_key: true
 
       t.timestamps
-      
-      t.index [:user_id, :community_id], unique: true
     end
   end
 end
