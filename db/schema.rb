@@ -55,8 +55,6 @@ ActiveRecord::Schema.define(version: 2020_07_01_155249) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "community_id"
-    t.index ["community_id"], name: "index_microposts_on_community_id"
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end
 
